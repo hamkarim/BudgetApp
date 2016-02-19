@@ -1,0 +1,58 @@
+FINANCIAL REPORT FOR USER: project-user1
+
+
+INCOME INFORMATION
+
+Category                    Percentage of Income    Value            
+
+Salary                                    78.13%    $2500.00        
+Investments                                6.25%    $200.00         
+Bonus                                      6.25%    $200.00         
+Grants/Tax Credits                         9.38%    $300.00         
+Total Income                             100.00%    $3200.00        
+
+
+BUDGET INFORMATION
+
+Category                    Percentage of Income    Value            
+
+Rent/Utilities                            40.00%    $1280.00        
+Groceries                                 10.00%    $320.00         
+Clothing                                   5.00%    $160.00         
+Transportaton/Car                         10.00%    $320.00         
+Education                                  5.00%    $160.00         
+Entertainment                              5.00%    $160.00         
+Other                                      5.00%    $160.00         
+Savings                                   20.00%    $640.00         
+Total Budget                             100.00%    $3200.00        
+
+
+EXPENSES OVERVIEW
+
+Category                  Percentage of Expenses    Total Expenses   
+
+Rent/Utilities                            71.68%    $2000.00        
+Groceries                                  8.96%    $250.00         
+Clothing                                   3.58%    $100.00         
+Transportation/Car                         8.60%    $240.00         
+Education                                  7.17%    $200.00         
+Entertainment                              0.00%    $0.00           
+Other                                      0.00%    $0.00           
+Total Expenses                           100.00%    $2790.00        
+
+
+EXPENSES LOG
+
+Date          Category              Description             Value     
+
+01-Jan-2016    Rent/Utilities        Monthly rent            $1000.00        
+01-Jan-2016    Transportation/Car    Metropass               $120.00         
+07-Jan-2016    Groceries             Weekly groceries        $50.00          
+14-Jan-2016    Groceries             Weekly groceries        $50.00          
+21-Jan-2016    Groceries             Weekly groceries        $50.00          
+28-Jan-2016    Groceries             Weekly groceries        $50.00          
+01-Feb-2016    Rent/Utilities        Monthly rent            $1000.00        
+01-Feb-2016    Transportation/Car    Metropass               $120.00         
+02-Feb-2016    Clothing              New shirts              $100.00         
+04-Feb-2016    Education             Textbooks               $200.00         
+04-Feb-2016    Groceries             Weekly groceries        $50.00          

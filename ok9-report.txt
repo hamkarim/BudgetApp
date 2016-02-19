@@ -1,0 +1,32 @@
+FINANCIAL REPORT FOR USER: ok9
+
+
+MONTHLY INCOME
+
+No income information saved.
+
+BUDGET INFORMATION
+
+No budget information saved.
+
+EXPENSES OVERVIEW
+
+Category                  Percentage of Expenses    Total Expenses   
+
+Rent/Utilities                           100.00%    $2700.00        
+Groceries                                  0.00%    $0.00           
+Clothing                                   0.00%    $0.00           
+Transportation/Car                         0.00%    $0.00           
+Education                                  0.00%    $0.00           
+Entertainment                              0.00%    $0.00           
+Other                                      0.00%    $0.00           
+Total Expenses                           100.00%    $2700.00        
+
+
+EXPENSES LOG
+
+Date          Category              Description             Value     
+
+02-Feb-2016    Rent/Utilities        ok                      $900.00         
+11-Feb-2016    Rent/Utilities        ok                      $900.00         
+19-Feb-2016    Rent/Utilities        ok                      $900.00         
