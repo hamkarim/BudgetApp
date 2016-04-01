@@ -14,6 +14,7 @@ import java.io.*;
 // due to the use of custom component jdatepicker we decided to use custom code for this rather than gui builder
 //tesing for michael github
 //testing 2 michael
+//michael branhc
 public class AddExpenseView extends JDialog{
     private JLabel lblDate,lblCategory,lblDescription,lblValue,lblTitle,lblWest,lblEast;
     private JTextField txtDescription;
