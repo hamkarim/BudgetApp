@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblSalary" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblBonus" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTotal" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="lblGrants" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="lblInvestments" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCategory" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="292" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="spinBonus" max="32767" attributes="0"/>
+                  <Component id="spinTax" alignment="1" max="32767" attributes="0"/>
+                  <Component id="txtTotal" max="32767" attributes="0"/>
+                  <Component id="spinInvestments" max="32767" attributes="0"/>
+                  <Component id="spinSalary" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="51" pref="51" max="-2" attributes="0"/>
+                      <Component id="lblPercentage" pref="220" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
+              <Component id="btnUpdate" min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
+              <Component id="btnClear" min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblCategory" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPercentage" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSalary" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spinSalary" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblInvestments" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spinInvestments" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblBonus" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spinBonus" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblGrants" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="spinTax" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="98" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnClear" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblPercentage">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Monthly Value"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCategory">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Category of Earnings"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSalary">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Salary"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblInvestments">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Investments"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblTotal">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Total Income"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblBonus">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Bonus"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblGrants">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Grants/Tax Credits"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spinSalary">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="spinSalary.addChangeListener(new Changes());"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spinBonus">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="spinBonus.addChangeListener(new Changes());"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spinTax">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="spinTax.addChangeListener(new Changes());"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="spinInvestments">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="0.0" minimum="0.0" numberType="java.lang.Double" stepSize="1.0" type="number"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="spinInvestments.addChangeListener(new Changes());"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtTotal">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="focusable" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnUpdate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Update"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnClear">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Clear"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

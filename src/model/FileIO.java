@@ -67,6 +67,8 @@ public class FileIO {
         }       
     }*/
     
+    
+    
     public static ArrayList<User> readUsers() {
         ArrayList<User> userList = new ArrayList<>();
         String userID, password;
@@ -103,16 +105,11 @@ public class FileIO {
         }       
     }
     
-    // Currently this only writes to end the end of the file, rather than amending previous income entries by the same userid
-    // Searching income starts from the end of the file meaning the most recent entry is retrieved, however, this method of saving
-    // will result in unneccesarily large files - RAM read/write could be useful here?
-    
     public static void writeIncome(String userId, double salary, double investments, double tax, double bonus, double total) {
         try {
             //Store expense information to field expenses
             DataOutputStream output = new DataOutputStream(new FileOutputStream("Income.dat",true));
             
-            // instead of just writing a user id, search for user id in list and edit that one
             output.writeUTF(userId);
             output.writeDouble(salary);
             output.writeDouble(investments);
@@ -154,7 +151,6 @@ public class FileIO {
         return incomeEntries;        
     }
     
-    // currently only saves income entries, needs modification to also save budget and expenses
     public static void saveReport(String incomeArg, String budgetArg, String expensesArg) {
         String reportHeader = String.format("FINANCIAL REPORT FOR USER: %s\r\n\r\n\r\n", UserStatus.getCurrentUser()); 
         String incomeEntryString = incomeArg;

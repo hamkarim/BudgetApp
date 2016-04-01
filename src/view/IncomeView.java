@@ -1,129 +1,28 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package view;
 
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.HierarchyEvent;
-import java.util.ArrayList;
 import java.util.Observable;
+import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import model.IncomeStatus;
 
+/**
+ *
+ * @author Admin
+ */
+public class IncomeView extends javax.swing.JPanel {
 
-public class IncomeView extends JPanel implements java.util.Observer {
-    
-    private JLabel lblSalary,lblInvestments,lblBonus,lblTax,lblTotal, lblWest,lblEast, lblCategoryHeading, lblValueHeading; 
-    private JSpinner spinSalary, spinInvestments, spinBonus, spinTax;
-    private SpinnerNumberModel modelSalary, modelInvestments, modelBonus, modelTax;
-    protected JTextField txtTotal; 
-    private JButton btnUpdate,btnClear;
-    private JPanel panelInfoArea,panelButtons, panelWest,panelEast;
-    
-    public IncomeView(){
-        this.setLayout(new BorderLayout()); 
-        this.initComponents();
-        this.add(panelInfoArea,BorderLayout.CENTER);
-        this.add(panelButtons,BorderLayout.SOUTH);
-        this.add(panelWest,BorderLayout.WEST);
-        this.add(panelEast,BorderLayout.EAST);
+    /**
+     * Creates new form IncomeView2
+     */
+    public IncomeView() {
+        initComponents();
     }
-    
-    public void initComponents()
-    {
-        lblSalary = new JLabel("Salary");
-        lblInvestments = new JLabel("Investments");
-        lblBonus = new JLabel("Bonus");
-        lblTax = new JLabel("Grants/Tax Credits");
-        lblTotal = new JLabel("Total Income");
-        lblWest = new JLabel(" ");
-        lblEast = new JLabel(" ");
-        
-        lblTotal.setForeground(Color.red);
-        lblTotal.setFont(new Font("Arial", Font.BOLD, 20));
-        lblTotal.setHorizontalAlignment(SwingConstants.CENTER);
-        
-        lblCategoryHeading = new JLabel("Category of Earnings");
-        lblCategoryHeading.setForeground(Color.red);
-        lblCategoryHeading.setFont(new Font("Arial", Font.BOLD, 20));
-        lblCategoryHeading.setHorizontalAlignment(SwingConstants.CENTER);
-        lblValueHeading = new JLabel("Monthly Value"); 
-        lblValueHeading.setForeground(Color.red);
-        lblValueHeading.setFont(new Font("Arial", Font.BOLD, 20));
-        lblValueHeading.setHorizontalAlignment(SwingConstants.CENTER);
-        
-        lblSalary.setHorizontalAlignment(SwingConstants.CENTER);
-        lblInvestments.setHorizontalAlignment(SwingConstants.CENTER);
-        lblBonus.setHorizontalAlignment(SwingConstants.CENTER);
-        lblTax.setHorizontalAlignment(SwingConstants.CENTER);
-        lblTotal.setHorizontalAlignment(SwingConstants.CENTER);
-        
-        lblSalary.setFont(new Font("Arial", Font.BOLD, 20));
-        lblInvestments.setFont(new Font("Arial", Font.BOLD, 20));
-        lblBonus.setFont(new Font("Arial", Font.BOLD, 20));
-        lblTax.setFont(new Font("Arial", Font.BOLD, 20));
-        lblTotal.setFont(new Font("Arial", Font.BOLD, 20));
-        
-        modelSalary = new SpinnerNumberModel(0.0, 0.0, 9999999999.99, 1.0); 
-        modelInvestments = new SpinnerNumberModel(0.0, 0.0, 9999999999.99, 1.0); 
-        modelBonus = new SpinnerNumberModel(0.0, 0.0, 9999999999.99, 1.0); 
-        modelTax = new SpinnerNumberModel(0.0, 0.0, 9999999999.99, 1.0); 
-
-        spinSalary = new JSpinner(modelSalary); 
-        spinInvestments = new JSpinner(modelInvestments); 
-        spinBonus = new JSpinner(modelBonus); 
-        spinTax = new JSpinner(modelTax); 
-        
-        txtTotal = new JTextField();
-        txtTotal.setEditable(false);
-        
-        btnUpdate = new JButton("Update");
-        btnClear = new JButton("Clear");
-                
-        panelInfoArea = new JPanel();
-        panelInfoArea.setLayout(new GridLayout(6,2));
-        panelInfoArea.add(lblCategoryHeading);
-        panelInfoArea.add(lblValueHeading);
-        panelInfoArea.add(lblSalary);
-        panelInfoArea.add(spinSalary);
-        panelInfoArea.add(lblInvestments);
-        panelInfoArea.add(spinInvestments);
-        panelInfoArea.add(lblBonus);
-        panelInfoArea.add(spinBonus);
-        panelInfoArea.add(lblTax);
-        panelInfoArea.add(spinTax);
-        panelInfoArea.add(lblTotal);
-        panelInfoArea.add(txtTotal);
-        panelInfoArea.setBackground(Color.getHSBColor(5, 250, 127));
-        
-        panelButtons = new JPanel();
-        panelButtons.setLayout(new FlowLayout());
-        panelButtons.add(btnUpdate);
-        panelButtons.add(btnClear);
-
-        panelWest = new JPanel();
-        panelWest.setLayout(new FlowLayout());
-        panelWest.add(lblWest);
-        
-        panelEast = new JPanel();
-        panelEast.setLayout(new FlowLayout());
-        panelEast.add(lblEast);
-        
-        spinSalary.addChangeListener(new Changes());
-        spinInvestments.addChangeListener(new Changes());
-        spinBonus.addChangeListener(new Changes());
-        spinTax.addChangeListener(new Changes());
-       
-        
-                
-    }
-
-    
     
     public void addController(ActionListener controller){
         // Adding event handlers to the menu and nav bar items
@@ -170,10 +69,6 @@ public class IncomeView extends JPanel implements java.util.Observer {
         JOptionPane.showMessageDialog(null, "Income updated successfully.", "Income Update Successful", JOptionPane.INFORMATION_MESSAGE);                    
     }
 
-    @Override
-    public void update(Observable o, Object arg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     // Allows for dynamic updating of value for total income 
     // Handler kept in view because updates are only concerned with display and do not affect the model layer
@@ -214,6 +109,156 @@ public class IncomeView extends JPanel implements java.util.Observer {
         txtTotal.setText(""); 
     }
      
-     
-}
 
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        lblPercentage = new javax.swing.JLabel();
+        lblCategory = new javax.swing.JLabel();
+        lblSalary = new javax.swing.JLabel();
+        lblInvestments = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
+        lblBonus = new javax.swing.JLabel();
+        lblGrants = new javax.swing.JLabel();
+        spinSalary = new javax.swing.JSpinner();
+        spinBonus = new javax.swing.JSpinner();
+        spinTax = new javax.swing.JSpinner();
+        spinInvestments = new javax.swing.JSpinner();
+        txtTotal = new javax.swing.JTextField();
+        btnUpdate = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+
+        lblPercentage.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPercentage.setText("Monthly Value");
+
+        lblCategory.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCategory.setText("Category of Earnings");
+
+        lblSalary.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblSalary.setText("Salary");
+
+        lblInvestments.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblInvestments.setText("Investments");
+
+        lblTotal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTotal.setText("Total Income");
+
+        lblBonus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblBonus.setText("Bonus");
+
+        lblGrants.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblGrants.setText("Grants/Tax Credits");
+
+        spinSalary.addChangeListener(new Changes());
+        spinSalary.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), Double.valueOf(0.0d), null, Double.valueOf(1.0d)));
+
+        spinBonus.addChangeListener(new Changes());
+        spinBonus.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), Double.valueOf(0.0d), null, Double.valueOf(1.0d)));
+
+        spinTax.addChangeListener(new Changes());
+        spinTax.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), Double.valueOf(0.0d), null, Double.valueOf(1.0d)));
+
+        spinInvestments.addChangeListener(new Changes());
+        spinInvestments.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), Double.valueOf(0.0d), null, Double.valueOf(1.0d)));
+
+        txtTotal.setEditable(false);
+        txtTotal.setFocusable(false);
+
+        btnUpdate.setText("Update");
+
+        btnClear.setText("Clear");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblSalary)
+                                .addComponent(lblBonus)
+                                .addComponent(lblTotal))
+                            .addGap(34, 34, 34))
+                        .addComponent(lblGrants))
+                    .addComponent(lblInvestments)
+                    .addComponent(lblCategory))
+                .addGap(292, 292, 292)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(spinBonus)
+                    .addComponent(spinTax, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtTotal)
+                    .addComponent(spinInvestments)
+                    .addComponent(spinSalary)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(lblPercentage, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
+                .addGap(39, 39, 39))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(237, 237, 237)
+                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126)
+                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCategory)
+                    .addComponent(lblPercentage))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSalary)
+                    .addComponent(spinSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblInvestments)
+                    .addComponent(spinInvestments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBonus)
+                    .addComponent(spinBonus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblGrants)
+                    .addComponent(spinTax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTotal)
+                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnClear))
+                .addGap(20, 20, 20))
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel lblBonus;
+    private javax.swing.JLabel lblCategory;
+    private javax.swing.JLabel lblGrants;
+    private javax.swing.JLabel lblInvestments;
+    private javax.swing.JLabel lblPercentage;
+    private javax.swing.JLabel lblSalary;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JSpinner spinBonus;
+    private javax.swing.JSpinner spinInvestments;
+    private javax.swing.JSpinner spinSalary;
+    private javax.swing.JSpinner spinTax;
+    private javax.swing.JTextField txtTotal;
+    // End of variables declaration//GEN-END:variables
+}

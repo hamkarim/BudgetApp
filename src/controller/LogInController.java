@@ -45,7 +45,7 @@ public class LogInController implements java.awt.event.ActionListener {
                 view.displayMessage("userNotFound"); 
             }
             else if (model.attemptLogin(view.getUsernameInput(), view.getPasswordInput())) {
-                view.logInSuccess(); 
+                view.logInSuccess();
             }
             else {
                 view.displayMessage("invalidPassword");

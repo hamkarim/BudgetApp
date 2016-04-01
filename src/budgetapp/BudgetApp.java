@@ -6,14 +6,24 @@
 
 package budgetapp;
 
-import model.IncomeStatus;
-import view.IncomeView;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.DBAccess;
 import view.MainFrameView;
 
 public class BudgetApp {
 
     public static void main(String[] args) {
 
+        try {
+            //Establishing database connection
+            DBAccess database = model.DBAccess.getInstance(); 
+            database.establishConnection(); 
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error establishing database connection. Please check your internet connection. Program terminated.", "Error Connecting to Database", JOptionPane.ERROR_MESSAGE); 
+            System.exit(1); 
+        }
         // Main frame contains CardLayout to change between various views
         view.MainFrameView window1 = new MainFrameView(); 
         controller.MainFrameController mainFrameController = new controller.MainFrameController();

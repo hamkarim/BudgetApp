@@ -82,7 +82,7 @@ public class EditExpenseView extends JFrame{
         comboCategory.setSelectedItem(category);
         
         panelExpenseInfo = new JPanel();
-        panelExpenseInfo.setLayout(new GridLayout(5,2));
+        panelExpenseInfo.setLayout(new GridLayout(4,2));
         panelExpenseInfo.add(lblDate);
         panelExpenseInfo.add((JComponent) picker);
         panelExpenseInfo.add(lblCategory);

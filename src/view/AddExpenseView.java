@@ -4,14 +4,17 @@ package view;
 import model.ExpenseEntry;
 import javax.swing.*;
 import java.awt.*;
+import static java.awt.Dialog.ModalityType.APPLICATION_MODAL;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import org.jdatepicker.JDateComponentFactory;
 import org.jdatepicker.JDatePicker;
 import java.io.*;
 
+// due to the use of custom component jdatepicker we decided to use custom code for this rather than gui builder
 
-public class AddExpenseView extends JFrame{
+
+public class AddExpenseView extends JDialog{
     private JLabel lblDate,lblCategory,lblDescription,lblValue,lblTitle,lblWest,lblEast;
     private JTextField txtDescription;
     // private JTextField txtValue;
@@ -36,7 +39,8 @@ public class AddExpenseView extends JFrame{
         this.setTitle("Add an Expense");
         this.setSize(550,200);
         this.setResizable(false);  // Keeps window locked at 550x200, since resizing larger makes the date picker component look strange
-        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); // hide rather than exit since this is a pop up we dont want the whole program to quit if the window is closed
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+        this.setAlwaysOnTop(true); 
         this.setVisible(true);      
     }
     
@@ -58,7 +62,7 @@ public class AddExpenseView extends JFrame{
         btnAdd = new JButton("Add");
         btnClear = new JButton("Clear");
         picker = new JDateComponentFactory().createJDatePicker();
-
+   
 	//picker.setTextEditable(true);   Maybe better to not have text editable, to avoid incorrect user input for this field? User is forced to use calendar to select valid date
 	//picker.setShowYearButtons(true);   Also may not be neccesary to have multiple buttons to change years
                    

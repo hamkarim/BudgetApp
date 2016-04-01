@@ -11,11 +11,13 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.HierarchyEvent;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Observable;
 import javax.swing.*;
 import model.BudgetStatus;
+import model.DBAccess;
 import model.ExpenseStatus;
 import model.IncomeStatus;
 import model.UserStatus;
@@ -54,6 +56,7 @@ public class MainFrameView extends JFrame implements java.util.Observer {
         this.setTitle(title);
         this.setSize(800,600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false); 
         this.setVisible(true);       
     }
     
@@ -120,7 +123,7 @@ public class MainFrameView extends JFrame implements java.util.Observer {
         helpMenu.addSeparator();
         helpMenu.add(aboutMenuItem);
         helpMenu.addSeparator(); //lines separating menu items like groupings of sub menu items
-        helpMenu.add(new JMenuItem("Version 1.0"));
+        helpMenu.add(new JMenuItem("Version 2.0"));
         
         // shortcut keys
         exitMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));
@@ -216,12 +219,25 @@ public class MainFrameView extends JFrame implements java.util.Observer {
         }
     } );  
         
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            
+    @Override
+    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+        try {
+        DBAccess database = model.DBAccess.getInstance(); 
+        database.closeConnection(); 
+        } catch (SQLException s) {}; 
+    }
+});
+        
     }
 
     @Override
     public void update(Observable o, Object arg) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
     
     public void addController(ActionListener controller){
                 // Adding event handlers to the menu and nav bar items
@@ -339,7 +355,7 @@ public class MainFrameView extends JFrame implements java.util.Observer {
         "\n2. Enter the details of your monthly income on the income screen." +
         "\n3. Enter the details of your expenses on the expenses screen using the add expense option.") + 
         "\n\n To view your financial information: " + 
-        "\n\n1. View your saveMenuItemd budget goals on budget page." + 
+        "\n\n1. View your saved budget goals on budget page." + 
         "\n2. View your income details on the income page." + 
         "\n3. View your expenses on the expenses page by clicking the view expenses button." + 
         "\n4. The report page will allow you to view a full report detailing how well you managed your income and expenses, and if you met your budget goals successfully.";
@@ -348,7 +364,7 @@ public class MainFrameView extends JFrame implements java.util.Observer {
     
     public void displayAboutMessage() {
         String about = String.format(
-       "Budget App - Version 1.0" +
+       "Budget App - Version 2.0" +
        "\n\nTeam Name: Sicoman" +
        "\nGroup Members: Michael Corrales, Man Luo, Cole Siegel" + 
        "\n\nCourse: Database Programming Using Java"); 
@@ -415,7 +431,6 @@ public class MainFrameView extends JFrame implements java.util.Observer {
         MainFrameView.this.setTitle(title);
     }
     
-    // Changes current user to null, loggedIn boolean to false, clears values on the other pages and resets login screen from welcome message to username/password
     public void displayLogoutView() {
         panelIncome.clearValues();
         panelBudget.clearValues(); 
@@ -432,6 +447,8 @@ public class MainFrameView extends JFrame implements java.util.Observer {
         cl.show(cards, strLogIn);
         MainFrameView.this.setTitle(title);
     }
+    
+
 }
     
 

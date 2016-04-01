@@ -88,7 +88,7 @@ public class ExpenseStatus {
             expenseString += String.format(overviewFormat, "Total Expenses", 100.0, expenseTotals[7]); 
             expenseString += "\r\n\r\n"; 
             String format = "EXPENSES LOG\r\n\r\n%1$-10s    %2$-18s    %3$-20s    %4$-10s\r\n\r\n";
-            expenseString += String.format(format, "Date", "Category", "Description", "Value");
+            expenseString += String.format(format, "Date", " Category", " Description", " Value");
             format = "%1$-10s    %2$-18s    %3$-20s    $%4$-15.2f\r\n";
             for (int i = 0; i < allExpenses.size(); i++) {
                 expenseString += String.format(format, allExpenses.get(i).getDate(), allExpenses.get(i).getCategory(), allExpenses.get(i).getDescription(), allExpenses.get(i).getValue() ); 

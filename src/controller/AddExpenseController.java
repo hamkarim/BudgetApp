@@ -29,7 +29,8 @@ public class AddExpenseController implements java.awt.event.ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand() == "btnClear"){                   
+        if (e.getActionCommand() == "btnClear"){ 
+            System.out.println("clear clicked"); 
             view.clearValues();
         }
         else if (e.getActionCommand() == "btnAdd") {

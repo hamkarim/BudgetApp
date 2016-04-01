@@ -5,11 +5,12 @@ import model.UserStatus;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.sql.SQLException;
 import model.BudgetStatus;
 import model.ExpenseStatus;
 import model.FileIO;
 import model.IncomeStatus;
-import view.IncomeView;
+import model.DBAccess; 
 
 
 public class MainFrameController implements java.awt.event.ActionListener {
@@ -30,6 +31,12 @@ public class MainFrameController implements java.awt.event.ActionListener {
             view.displayAboutMessage(); 
         }
         else if (e.getActionCommand() == "exitMenuItem") {
+            DBAccess db = DBAccess.getInstance(); 
+            try {
+                DBAccess database = DBAccess.getInstance(); 
+                database.closeConnection(); 
+            } catch (SQLException s) {}; 
+
             System.exit(0); 
         }
         else if (UserStatus.getLoggedIn() == false) {
