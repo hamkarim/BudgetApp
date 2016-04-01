@@ -25,7 +25,7 @@ public class DisplayExpensesView extends JFrame{
     private EditExpenseView editExpensePopUp;
     
     
-    
+    //Test by Lynn
     public DisplayExpensesView(String category,String month,Object rowData[][]){
         this.category = category;
         this.month = month;
