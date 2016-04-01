@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.io.RandomAccessFile;
+import java.sql.ResultSet;
 
 
 public class FileIO {
@@ -67,8 +68,9 @@ public class FileIO {
         }       
     }*/
     
-    
-    
+
+     
+    /*  replaced with readUsers in DB Class
     public static ArrayList<User> readUsers() {
         ArrayList<User> userList = new ArrayList<>();
         String userID, password;
@@ -88,8 +90,8 @@ public class FileIO {
 
         return userList; 
         
-    }
-    
+    } */ 
+    /*  replaced with writeUser in DB Class
     public static void writeUser(String userId, String password) {
         try {
             //Store expense information to field expenses
@@ -103,7 +105,7 @@ public class FileIO {
         } catch (Exception ex){
             JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
         }       
-    }
+    } */ 
     
     public static void writeIncome(String userId, double salary, double investments, double tax, double bonus, double total) {
         try {

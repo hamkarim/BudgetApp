@@ -1,6 +1,7 @@
 
 package model;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -8,7 +9,6 @@ public class UserStatus {
     private static ArrayList<User> userList = new ArrayList<User>(); 
     private static boolean loggedIn = false;
     private static String currentUser = ""; 
-    
     
     public static String getCurrentUser() {
         return currentUser;
@@ -32,11 +32,11 @@ public class UserStatus {
     
     public static void addUserEntry(String userid, String password) {
         userList.add(new User(userid,password)); 
-        FileIO.writeUser(userid, password);
+        DBAccess.writeUser(userid, password);
     }
 
     public int searchUsername(String searchPattern) {
-            userList = FileIO.readUsers();
+            userList = DBAccess.readUsers();
             int userIndex; 
             for (int i = 0; i < userList.size(); i++) {
                     if  (userList.get(i).getUserid().equals(searchPattern)) {
@@ -47,13 +47,13 @@ public class UserStatus {
             return -1; 
     }
       
-    public boolean attemptLogin(String username, String password) {
+    public boolean attemptLogin(String username, String password) {            
             int userIndex = searchUsername(username); 
             if (userList.get(userIndex).getPassword().equals(password)) {
                 this.setCurrentUser(username); 
                 this.setLoggedIn(true); 
                 return true;
-            }
+            } 
         
         return false; 
         

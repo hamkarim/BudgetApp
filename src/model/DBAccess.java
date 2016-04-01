@@ -1,12 +1,16 @@
 
 package model;
 
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class DBAccess {
@@ -15,7 +19,7 @@ public class DBAccess {
     final String HOSTINFO = "jdbc:oracle:thin:@dilbert.humber.ca:1521:grok"; 
     private Connection connection;
     private Statement statement;
-    private ResultSet rs = null; 
+    private static ResultSet userSet;
     
     
     private DBAccess() {}; 
@@ -36,7 +40,9 @@ public class DBAccess {
         statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE); 
     }
     
-    
+    public void loadTables() throws Exception {
+        this.getUsers();
+    }
     
     /* new commands for modifying database tables
     public DataAccess(String userName, String password) throws Exception {
@@ -62,15 +68,41 @@ public class DBAccess {
     }
     
     
-    public ResultSet getUsers() throws SQLException, Exception {
+    public void getUsers() throws SQLException, Exception {
         String sqlStm = "Select username, password from users"; 
+        userSet = statement.executeQuery(sqlStm);
+    }
+    
+    public static ArrayList<User> readUsers() {
+        ArrayList<User> userList = new ArrayList<>();
+        String userID, password; 
+        try { 
+            if (userSet.first()) {
+            //userSet.first(); 
+                do {
+                    userID = userSet.getString(1); 
+                    password = userSet.getString(2);
+                    userList.add(new User(userID, password));
+                } while (userSet.next()); 
+            }
+        } catch (SQLException s) { 
+            JOptionPane.showMessageDialog(null, "Error loading user list from database. Program terminated.", "Error Loading Users", JOptionPane.ERROR_MESSAGE); 
+            System.exit(1); 
+        }
+        return userList; 
+    }
+    
+     public static void writeUser(String userId, String password) {
         try {
-            rs = statement.executeQuery(sqlStm);
-        } finally {
-            return rs;
+            userSet.moveToInsertRow(); 
+            userSet.updateString("USERNAME", userId); 
+            userSet.updateString("PASSWORD", password); 
+            userSet.insertRow();                   
+        } catch (SQLException s) { 
+            JOptionPane.showMessageDialog(null, "Error writing user to database. Program terminated.", "Error Writing User Data", JOptionPane.ERROR_MESSAGE);
+            System.exit(1); 
         }
     }
-        
-     
+
 }
 
