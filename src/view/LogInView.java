@@ -51,16 +51,17 @@ public class LogInView extends javax.swing.JPanel {
         lblPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/passwordIcon.png"))); // NOI18N
         lblPassword.setText("   Password:");
 
-        btnLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnLogin.setText("Login");
 
-        btnClear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnClear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnClear.setText("Clear");
 
-        btnRegister.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnRegister.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnRegister.setText("Register");
 
-        lblLoggedIn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblLoggedIn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblLoggedIn.setForeground(new java.awt.Color(255, 204, 51));
         lblLoggedIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/calculator.gif"))); // NOI18N
         lblLoggedIn.setText("    Welcome, username!");
 
@@ -69,7 +70,7 @@ public class LogInView extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 190, Short.MAX_VALUE)
+                .addGap(0, 169, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()

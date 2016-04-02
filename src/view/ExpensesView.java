@@ -40,6 +40,9 @@ public class ExpensesView extends javax.swing.JPanel {
         lblCategory = new javax.swing.JLabel();
         lblMonth = new javax.swing.JLabel();
         comboMonth = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+
+        setLayout(null);
 
         comboCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         comboCategory.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "View All", "Rent/Utilities", "Groceries", "Clothing", "Transportation/Car", "Education", "Entertainment", "Other" }));
@@ -48,25 +51,42 @@ public class ExpensesView extends javax.swing.JPanel {
                 comboCategoryActionPerformed(evt);
             }
         });
+        add(comboCategory);
+        comboCategory.setBounds(474, 222, 250, 23);
 
+        btnDisplay.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnDisplay.setText("View Expenses");
+        add(btnDisplay);
+        btnDisplay.setBounds(50, 400, 170, 31);
 
+        btnClear.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnClear.setText("Clear");
+        add(btnClear);
+        btnClear.setBounds(320, 400, 160, 31);
 
+        btnAddExpense.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnAddExpense.setText("Add Expense");
+        add(btnAddExpense);
+        btnAddExpense.setBounds(580, 400, 170, 31);
 
-        lblGenerateReport.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblGenerateReport.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblGenerateReport.setText("Generate an Expense Report");
+        add(lblGenerateReport);
+        lblGenerateReport.setBounds(33, 13, 280, 22);
 
-        lblCategory.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblCategory.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/categoryIcon.png"))); // NOI18N
         lblCategory.setText("    Select a Category");
         lblCategory.setToolTipText("");
+        add(lblCategory);
+        lblCategory.setBounds(33, 217, 220, 32);
 
-        lblMonth.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblMonth.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblMonth.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/monthIcon.png"))); // NOI18N
         lblMonth.setText("    Select a Month");
         lblMonth.setToolTipText("");
+        add(lblMonth);
+        lblMonth.setBounds(33, 97, 200, 32);
 
         comboMonth.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         comboMonth.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "View All", "January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "December" }));
@@ -75,52 +95,13 @@ public class ExpensesView extends javax.swing.JPanel {
                 comboMonthActionPerformed(evt);
             }
         });
+        add(comboMonth);
+        comboMonth.setBounds(474, 102, 250, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMonth)
-                            .addComponent(lblGenerateReport))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblCategory)
-                            .addComponent(btnDisplay))
-                        .addGap(163, 163, 163)
-                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAddExpense, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(76, 76, 76))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblGenerateReport)
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMonth)
-                    .addComponent(comboMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(88, 88, 88)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCategory)
-                    .addComponent(comboCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDisplay)
-                    .addComponent(btnClear)
-                    .addComponent(btnAddExpense))
-                .addGap(20, 20, 20))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/blueBackground.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1);
+        jLabel1.setBounds(-10, -10, 850, 470);
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoryActionPerformed
@@ -138,6 +119,7 @@ public class ExpensesView extends javax.swing.JPanel {
     private javax.swing.JButton btnDisplay;
     private javax.swing.JComboBox comboCategory;
     private javax.swing.JComboBox comboMonth;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCategory;
     private javax.swing.JLabel lblGenerateReport;
     private javax.swing.JLabel lblMonth;

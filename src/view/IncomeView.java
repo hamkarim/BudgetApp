@@ -133,121 +133,98 @@ public class IncomeView extends javax.swing.JPanel {
         txtTotal = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        lblPercentage.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        setLayout(null);
+
+        lblPercentage.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblPercentage.setForeground(new java.awt.Color(255, 255, 255));
         lblPercentage.setText("Monthly Value");
+        add(lblPercentage);
+        lblPercentage.setBounds(541, 13, 300, 22);
 
-        lblCategory.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCategory.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblCategory.setForeground(new java.awt.Color(255, 255, 255));
         lblCategory.setText("Category of Earnings");
+        add(lblCategory);
+        lblCategory.setBounds(33, 13, 250, 22);
 
-        lblSalary.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblSalary.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblSalary.setForeground(new java.awt.Color(255, 255, 255));
         lblSalary.setText("Salary");
+        add(lblSalary);
+        lblSalary.setBounds(33, 67, 120, 22);
 
-        lblInvestments.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblInvestments.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblInvestments.setForeground(new java.awt.Color(255, 255, 255));
         lblInvestments.setText("Investments");
+        add(lblInvestments);
+        lblInvestments.setBounds(33, 119, 160, 22);
 
-        lblTotal.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(255, 255, 255));
         lblTotal.setText("Total Income");
+        add(lblTotal);
+        lblTotal.setBounds(33, 273, 190, 22);
 
-        lblBonus.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblBonus.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblBonus.setForeground(new java.awt.Color(255, 255, 255));
         lblBonus.setText("Bonus");
+        add(lblBonus);
+        lblBonus.setBounds(33, 171, 120, 22);
 
-        lblGrants.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblGrants.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblGrants.setForeground(new java.awt.Color(255, 255, 255));
         lblGrants.setText("Grants/Tax Credits");
+        add(lblGrants);
+        lblGrants.setBounds(33, 223, 200, 22);
 
         spinSalary.addChangeListener(new Changes());
         spinSalary.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), Double.valueOf(0.0d), null, Double.valueOf(1.0d)));
+        add(spinSalary);
+        spinSalary.setBounds(490, 65, 271, 22);
 
         spinBonus.addChangeListener(new Changes());
         spinBonus.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), Double.valueOf(0.0d), null, Double.valueOf(1.0d)));
+        add(spinBonus);
+        spinBonus.setBounds(490, 169, 271, 22);
 
         spinTax.addChangeListener(new Changes());
         spinTax.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), Double.valueOf(0.0d), null, Double.valueOf(1.0d)));
+        add(spinTax);
+        spinTax.setBounds(490, 221, 271, 22);
 
         spinInvestments.addChangeListener(new Changes());
         spinInvestments.setModel(new javax.swing.SpinnerNumberModel(Double.valueOf(0.0d), Double.valueOf(0.0d), null, Double.valueOf(1.0d)));
+        add(spinInvestments);
+        spinInvestments.setBounds(490, 117, 271, 22);
 
         txtTotal.setEditable(false);
         txtTotal.setFocusable(false);
+        add(txtTotal);
+        txtTotal.setBounds(490, 275, 271, 22);
 
+        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnUpdate.setText("Update");
+        add(btnUpdate);
+        btnUpdate.setBounds(237, 395, 100, 25);
 
+        btnClear.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnClear.setText("Clear");
+        add(btnClear);
+        btnClear.setBounds(463, 395, 100, 25);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblSalary)
-                                .addComponent(lblBonus)
-                                .addComponent(lblTotal))
-                            .addGap(34, 34, 34))
-                        .addComponent(lblGrants))
-                    .addComponent(lblInvestments)
-                    .addComponent(lblCategory))
-                .addGap(292, 292, 292)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spinBonus)
-                    .addComponent(spinTax, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtTotal)
-                    .addComponent(spinInvestments)
-                    .addComponent(spinSalary)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(lblPercentage, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
-                .addGap(39, 39, 39))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(237, 237, 237)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126)
-                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCategory)
-                    .addComponent(lblPercentage))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSalary)
-                    .addComponent(spinSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblInvestments)
-                    .addComponent(spinInvestments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBonus)
-                    .addComponent(spinBonus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblGrants)
-                    .addComponent(spinTax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTotal)
-                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnClear))
-                .addGap(20, 20, 20))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/purple.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1);
+        jLabel1.setBounds(-50, -40, 880, 490);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblBonus;
     private javax.swing.JLabel lblCategory;
     private javax.swing.JLabel lblGrants;
