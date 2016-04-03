@@ -37,14 +37,18 @@ public class ReportSelectionView extends javax.swing.JPanel {
         lblMonth = new javax.swing.JLabel();
         comboMonth = new javax.swing.JComboBox();
 
+        btnDisplayReport.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnDisplayReport.setText("Display Report");
 
+        btnClear.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnClear.setText("Clear");
 
-        lblGenerateReport.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblGenerateReport.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblGenerateReport.setForeground(new java.awt.Color(255, 51, 255));
         lblGenerateReport.setText("Generate a Financial Report");
 
-        lblMonth.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblMonth.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMonth.setForeground(new java.awt.Color(255, 51, 255));
         lblMonth.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/monthIcon.png"))); // NOI18N
         lblMonth.setText("    Select a Month");
         lblMonth.setToolTipText("");
@@ -64,7 +68,7 @@ public class ReportSelectionView extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(166, 166, 166)
                 .addComponent(btnDisplayReport)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE)
                 .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(132, 132, 132))
             .addGroup(jPanel1Layout.createSequentialGroup()
