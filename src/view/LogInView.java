@@ -43,11 +43,11 @@ public class LogInView extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        lblUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblUsername.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblUsername.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/userIcon.png"))); // NOI18N
         lblUsername.setText("Username:");
 
-        lblPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPassword.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/passwordIcon.png"))); // NOI18N
         lblPassword.setText("   Password:");
 
@@ -70,7 +70,7 @@ public class LogInView extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 169, Short.MAX_VALUE)
+                .addGap(0, 166, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -78,8 +78,8 @@ public class LogInView extends javax.swing.JPanel {
                             .addComponent(passPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(83, 83, 83)
@@ -112,7 +112,7 @@ public class LogInView extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnRegister)
                         .addComponent(btnClear)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
         lblLoggedIn.setVisible(false);

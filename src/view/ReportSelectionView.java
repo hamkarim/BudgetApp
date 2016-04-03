@@ -43,7 +43,7 @@ public class ReportSelectionView extends javax.swing.JPanel {
         btnClear.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         btnClear.setText("Clear");
 
-        lblGenerateReport.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblGenerateReport.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblGenerateReport.setForeground(new java.awt.Color(255, 51, 255));
         lblGenerateReport.setText("Generate a Financial Report");
 
