@@ -23,6 +23,8 @@ public class DBAccess {
     private static ResultSet userSet;
     private static ResultSet incomeSet; 
     private static ResultSet budgetSet; 
+    private static ResultSet expenseSet;
+    private static ResultSet expenseUserSet;
     
     
     private DBAccess() {}; 
@@ -212,6 +214,52 @@ public class DBAccess {
             updateDBEntryStm.setDouble(8, other);
             updateDBEntryStm.setString(9, userId); 
             updateDBEntryStm.executeUpdate(); 
+        } catch (SQLException s) {
+            JOptionPane.showMessageDialog(null, "Failed to update database entry. Program terminated.", "Error Loading Budget", JOptionPane.ERROR_MESSAGE); 
+            System.exit(1); 
+        }       
+    }
+    
+    public static void writeExpense(String dateOfPurchase, String category, String description, double value) {
+        try {
+            int expenseID = 0;
+            String sql = "INSERT INTO EXPENSES VALUES" + "(?,?,?,?,?)";
+            PreparedStatement insertExepnse= connection.prepareStatement(sql);
+            insertExepnse.setInt(1, expenseID);
+            insertExepnse.setString(2, dateOfPurchase);
+            insertExepnse.setString(3, category);
+            insertExepnse.setString(4, description);
+            insertExepnse.setDouble(5, value);
+            insertExepnse.executeUpdate();
+        } catch (SQLException s) { 
+            JOptionPane.showMessageDialog(null, "Error writing expense in database. Program terminated.", "Error Writing Expense Data", JOptionPane.ERROR_MESSAGE);
+            System.exit(1); 
+        } 
+    }
+    
+    public static void writeExpenseUser(int expenseID, String userName ) {
+        try {
+            String sql = "INSERT INTO EXPENSEUSERS VALUES" + "(?,?)";
+            PreparedStatement insertExepnseUser= connection.prepareStatement(sql);
+            insertExepnseUser.setInt(1, expenseID);
+            insertExepnseUser.setString(2, userName);
+            insertExepnseUser.executeUpdate();
+        } catch (SQLException s) { 
+            JOptionPane.showMessageDialog(null, "Error writing expense user in database. Program terminated.", "Error Writing Expense User Data", JOptionPane.ERROR_MESSAGE);
+            System.exit(1); 
+        } 
+    }
+    
+    public static void updateExpense(int expenseID, String dateOfPurchase, String category, String description, double value) {
+        try {
+            String updateDBEntry = "UPDATE EXPENSES SET dateOfPurchase = ?, category = ?, description = ?, value = ? WHERE expenseid = ?"; 
+            PreparedStatement updateExpense = connection.prepareStatement(updateDBEntry);
+            updateExpense.setString(1, dateOfPurchase);
+            updateExpense.setString(2, category);
+            updateExpense.setString(3, description);
+            updateExpense.setDouble(4, value);
+            updateExpense.setInt(5, expenseID); 
+            updateExpense.executeUpdate(); 
         } catch (SQLException s) {
             JOptionPane.showMessageDialog(null, "Failed to update database entry. Program terminated.", "Error Loading Budget", JOptionPane.ERROR_MESSAGE); 
             System.exit(1); 
