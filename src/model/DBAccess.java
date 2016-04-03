@@ -252,8 +252,8 @@ public class DBAccess {
     
     public static void updateExpense(int expenseID, String dateOfPurchase, String category, String description, double value) {
         try {
-            String updateDBEntry = "UPDATE EXPENSES SET dateOfPurchase = ?, category = ?, description = ?, value = ? WHERE expenseid = ?"; 
-            PreparedStatement updateExpense = connection.prepareStatement(updateDBEntry);
+            String sql = "UPDATE EXPENSES SET dateOfPurchase = ?, category = ?, description = ?, value = ? WHERE expenseid = ?"; 
+            PreparedStatement updateExpense = connection.prepareStatement(sql);
             updateExpense.setString(1, dateOfPurchase);
             updateExpense.setString(2, category);
             updateExpense.setString(3, description);
@@ -261,10 +261,34 @@ public class DBAccess {
             updateExpense.setInt(5, expenseID); 
             updateExpense.executeUpdate(); 
         } catch (SQLException s) {
-            JOptionPane.showMessageDialog(null, "Failed to update database entry. Program terminated.", "Error Loading Budget", JOptionPane.ERROR_MESSAGE); 
+            JOptionPane.showMessageDialog(null, "Failed to update database entry. Program terminated.", "Error Loading Expense", JOptionPane.ERROR_MESSAGE); 
             System.exit(1); 
         }       
     }
     
+    public static void deleteExpense(int expenseID){
+        try{
+            String sql = "DELETE FROM EXPENSES WHERE expenseid = ?";
+            PreparedStatement deleteExpense = connection.prepareStatement(sql);
+            deleteExpense.setInt(1, expenseID);           
+            deleteExpense.executeUpdate();
+        }catch(SQLException s){
+            JOptionPane.showMessageDialog(null, "Failed to delete database entry. Program terminated.", "Error Deleting Expense", JOptionPane.ERROR_MESSAGE); 
+            System.exit(1); 
+        }
+    }
+    
+    public static void deleteExpenseUser(int expenseID, String userName){
+        try{
+            String sql = "DELETE FROM EXPENSEUSERS WHERE expenseid = ? and username = ?";
+            PreparedStatement deleteExpenseUser = connection.prepareStatement(sql);
+            deleteExpenseUser.setInt(1, expenseID);
+            deleteExpenseUser.setString(2, userName);
+            deleteExpenseUser.executeUpdate();
+        }catch(SQLException s){
+            JOptionPane.showMessageDialog(null, "Failed to delete database entry. Program terminated.", "Error Deleting Expense User", JOptionPane.ERROR_MESSAGE); 
+            System.exit(1); 
+        }
+    }
 }
 
