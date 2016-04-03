@@ -57,17 +57,17 @@ public class ExpensesView extends javax.swing.JPanel {
         btnDisplay.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnDisplay.setText("View Expenses");
         add(btnDisplay);
-        btnDisplay.setBounds(50, 400, 170, 31);
+        btnDisplay.setBounds(50, 380, 170, 31);
 
         btnClear.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnClear.setText("Clear");
         add(btnClear);
-        btnClear.setBounds(320, 400, 160, 31);
+        btnClear.setBounds(320, 380, 160, 31);
 
         btnAddExpense.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnAddExpense.setText("Add Expense");
         add(btnAddExpense);
-        btnAddExpense.setBounds(580, 400, 170, 31);
+        btnAddExpense.setBounds(580, 380, 170, 31);
 
         lblGenerateReport.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblGenerateReport.setText("Generate an Expense Report");
