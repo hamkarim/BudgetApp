@@ -5,12 +5,23 @@
         <group>
             <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/controller/MainFrameController.java</file>
             <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/controller/LogInController.java</file>
-            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/model/User.java</file>
-            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/budgetapp/BudgetApp.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/model/ExpenseStatus.java</file>
             <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/model/DBAccess.java</file>
             <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/model/FileIO.java</file>
             <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/view/LogInView.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/controller/BudgetController.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/controller/IncomeController.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/model/BudgetStatus.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/controller/AddExpenseController.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/controller/DisplayExpensesController.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/model/ExpenseEntry.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/controller/ExpensesController.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/model/IncomeStatus.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/budgetapp/BudgetApp.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/controller/ReportSelectionController.java</file>
             <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/model/UserStatus.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/view/BudgetView.java</file>
+            <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/controller/EditExpenseController.java</file>
             <file>file:/C:/Users/Admin/Desktop/BudgetApp/src/view/MainFrameView.java</file>
         </group>
     </open-files>

@@ -1,0 +1,33 @@
+FINANCIAL REPORT FOR USER: ok2
+
+
+INCOME INFORMATION
+
+Category                    Percentage of Income    Value            
+
+Salary                                     0.00%    $0.00           
+Investments                                0.00%    $0.00           
+Bonus                                      0.00%    $0.00           
+Grants/Tax Credits                         0.00%    $0.00           
+Total Income                             100.00%    $0.00           
+
+
+BUDGET INFORMATION
+
+Category                    Percentage of Income    Value            
+
+Rent/Utilities                             0.00%    $0.00           
+Groceries                                  0.00%    $0.00           
+Clothing                                   0.00%    $0.00           
+Transportaton/Car                          0.00%    $0.00           
+Education                                  0.00%    $0.00           
+Entertainment                              0.00%    $0.00           
+Other                                      0.00%    $0.00           
+Savings                                    0.00%    $0.00           
+Total Budget                             100.00%    $0.00           
+
+
+EXPENSES INFORMATION
+
+No expense information saved.
+

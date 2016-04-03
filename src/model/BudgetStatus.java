@@ -5,132 +5,154 @@
  */
 package model;
 
-import java.util.ArrayList;
 
 /**
  *
  * @author Admin
  */
 public class BudgetStatus {
-    protected static ArrayList<BudgetEntry> BudgetEntries = new ArrayList<BudgetEntry>(); 
+    private static BudgetStatus instance;
+    private String userid; 
+    private double rentPercent;
+    private double groceryPercent;
+    private double clothingPercent;
+    private double transportationPercent;
+    private double educationPercent;
+    private double savingsPercent;
+    private double entertainmentPercent;
+    private double otherPercent;
+    
+    public void setBudgetStatus(String userid, double rentPercent, double groceryPercent, double clothingPercent, double transportationPercent, double educationPercent, double savingsPercent, double entertainmentPercent, double otherPercent) {
+        this.userid = userid; 
+        this.rentPercent = rentPercent;
+        this.groceryPercent = groceryPercent;
+        this.clothingPercent = clothingPercent;
+        this.transportationPercent = transportationPercent;
+        this.educationPercent = educationPercent;
+        this.savingsPercent = savingsPercent; 
+        this.entertainmentPercent = entertainmentPercent; 
+        this.otherPercent = otherPercent; 
+    }
 
-    public static void addBudgetEntry (String userid, double rentPercent, double groceryPercent, double clothingPercent, double transportationPercent, double educationPercent, double savingsPercent, double entertainmentPercent, double otherPercent) {
-        BudgetEntries.add(new BudgetEntry(userid, rentPercent, groceryPercent, clothingPercent, transportationPercent, educationPercent, savingsPercent, entertainmentPercent, otherPercent)); 
+    public double getRentPercent() {
+        return rentPercent;
     }
     
-    public static void addBudgetEntry (double rentPercent, double groceryPercent, double clothingPercent, double transportationPercent, double educationPercent, double savingsPercent, double entertainmentPercent, double otherPercent) {
-        BudgetEntries.add(new BudgetEntry(UserStatus.getCurrentUser(), rentPercent, groceryPercent, clothingPercent, transportationPercent, educationPercent, savingsPercent, entertainmentPercent, otherPercent)); 
-        FileIO.writeBudget(UserStatus.getCurrentUser(), rentPercent, groceryPercent, clothingPercent, transportationPercent, educationPercent, entertainmentPercent, savingsPercent, otherPercent);
-    }
-        
-    public void updateBudgetEntry(int userIndex, double rentPercent, double groceryPercent, double clothingPercent, double transportationPercent, double educationPercent, double savingsPercent, double entertainmentPercent, double otherPercent)  {
-        BudgetEntries.get(userIndex).setRentPercent(rentPercent);
-        BudgetEntries.get(userIndex).setGroceryPercent(groceryPercent);
-        BudgetEntries.get(userIndex).setClothingPercent(clothingPercent);
-        BudgetEntries.get(userIndex).setTransportationPercent(transportationPercent);
-        BudgetEntries.get(userIndex).setEducationPercent(educationPercent);
-        BudgetEntries.get(userIndex).setSavingsPercent(savingsPercent);
-        BudgetEntries.get(userIndex).setEntertainmentPercent(entertainmentPercent);
-        BudgetEntries.get(userIndex).setOtherPercent(otherPercent);
-        FileIO.writeBudget(UserStatus.getCurrentUser(), rentPercent, groceryPercent, clothingPercent, transportationPercent, educationPercent, entertainmentPercent, savingsPercent, otherPercent);
+    public double getGroceryPercent() {
+        return groceryPercent;
     }
     
-    public int searchBudgetEntry() {
-            BudgetEntries = FileIO.readBudget(); 
-            String userid = UserStatus.getCurrentUser();
-            int userIndex = -1;
-            for (int i = BudgetEntries.size() - 1; i >= 0; i--) {
-                    if  (BudgetEntries.get(i).getUserid().equals(userid)) {
-                        userIndex = i;
-                        return userIndex; 
-                    }
-                }
-            return -1; 
+    public double getClothingPercent() {
+        return clothingPercent;
+    }
+    
+    public double getTransportationPercent() {
+        return transportationPercent;
+    }
+    
+    public double getEducationPercent() {
+        return educationPercent;
+    }
+    
+    public double getSavingsPercent() {
+        return savingsPercent;
+    }
+    
+    public double getEntertainmentPercent() {
+        return entertainmentPercent;
+    }
+    
+    public double getOtherPercent() {
+        return otherPercent;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+    
+    public void setRentPercent(double rentPercent) {
+        this.rentPercent =  rentPercent; 
+    }
+    
+    public void setGroceryPercent(double groceryPercent) {
+        this.groceryPercent =  groceryPercent;
+    }
+    
+    public void setClothingPercent(double clothingPercent) {
+        this.clothingPercent =  clothingPercent;
+    }
+    
+    public void setTransportationPercent(double transportationPercent) {
+        this.transportationPercent =  transportationPercent;
+    }
+    
+    public void setEducationPercent(double educationPercent) {
+        this.educationPercent =  educationPercent;
+    }
+    
+    public void setSavingsPercent(double savingsPercent) {
+        this.savingsPercent =  savingsPercent;
+    }
+    
+    public void setEntertainmentPercent(double entertainmentPercent) {
+        this.entertainmentPercent =  entertainmentPercent;
+    }
+    
+    public void setOtherPercent(double otherPercent) {
+        this.otherPercent =  otherPercent;
+    }
+    
+    private BudgetStatus() {}; 
+    
+    public static BudgetStatus getInstance() {
+        if (instance == null) {
+            instance = new BudgetStatus(); 
+        }
+        return instance; 
+    }
+    
+    public void loadBudget() {
+        DBAccess.readBudget();
+    }
+
+    public void updateBudgetEntry(double rentPercent, double groceryPercent, double clothingPercent, double transportationPercent, double educationPercent,  double entertainmentPercent, double savingsPercent, double otherPercent)  {
+        DBAccess.updateBudget(UserStatus.getCurrentUser(), rentPercent, groceryPercent, clothingPercent, transportationPercent, educationPercent, entertainmentPercent, savingsPercent, otherPercent);    
     }
     
     public String getBudgetEntryString() {
+        DBAccess.readBudget();
         String budgetEntryString = ""; 
-        IncomeStatus income = new IncomeStatus();
-        int incomeIndex = income.searchIncomeEntry(); 
-        double totalIncome = income.getTotal(incomeIndex); 
+        IncomeStatus income = IncomeStatus.getInstance(); 
+        double totalIncome = income.getTotal(); 
         
-        int userIndex = searchBudgetEntry(); 
-        if (userIndex == -1) {
-            budgetEntryString = String.format("BUDGET INFORMATION\r\n\r\nNo budget information saved.\r\n\r\n"); 
-        }
-        else {
-            String overviewFormat = "BUDGET INFORMATION\r\n\r\n%1$-20s    %2$24s    %3$-17s\r\n\r\n";
-            budgetEntryString += String.format(overviewFormat, "Category", "Percentage of Income", "Value"); 
-            overviewFormat = "%1$-20s    %2$23.2f%%    $%3$-15.2f\r\n";
-            budgetEntryString += String.format(overviewFormat, "Rent/Utilities", getRentPercent(userIndex), (getRentPercent(userIndex) / 100) * totalIncome); 
-            budgetEntryString += String.format(overviewFormat, "Groceries", getGroceryPercent(userIndex), (getGroceryPercent(userIndex) / 100) * totalIncome); 
-            budgetEntryString += String.format(overviewFormat, "Clothing", getClothingPercent(userIndex), (getClothingPercent(userIndex) / 100) * totalIncome); 
-            budgetEntryString += String.format(overviewFormat, "Transportaton/Car", getTransportationPercent(userIndex), (getTransportationPercent(userIndex) / 100) * totalIncome); 
-            budgetEntryString += String.format(overviewFormat, "Education", getEducationPercent(userIndex), (getEducationPercent(userIndex) / 100) * totalIncome); 
-            budgetEntryString += String.format(overviewFormat, "Entertainment", getEntertainmentPercent(userIndex), (getEntertainmentPercent(userIndex) / 100) * totalIncome); 
-            budgetEntryString += String.format(overviewFormat, "Other", getOtherPercent(userIndex), (getOtherPercent(userIndex) / 100) * totalIncome); 
-            budgetEntryString += String.format(overviewFormat, "Savings", getSavingsPercent(userIndex), (getSavingsPercent(userIndex) / 100) * totalIncome); 
-            budgetEntryString += String.format(overviewFormat, "Total Budget", 100.00, totalIncome); 
-            budgetEntryString += "\r\n\r\n";
-        }
+        String overviewFormat = "BUDGET INFORMATION\r\n\r\n%1$-20s    %2$24s    %3$-17s\r\n\r\n";
+        budgetEntryString += String.format(overviewFormat, "Category", "Percentage of Income", "Value"); 
+        overviewFormat = "%1$-20s    %2$23.2f%%    $%3$-15.2f\r\n";
+        budgetEntryString += String.format(overviewFormat, "Rent/Utilities", getRentPercent(), (getRentPercent() / 100) * totalIncome); 
+        budgetEntryString += String.format(overviewFormat, "Groceries", getGroceryPercent(), (getGroceryPercent() / 100) * totalIncome); 
+        budgetEntryString += String.format(overviewFormat, "Clothing", getClothingPercent(), (getClothingPercent() / 100) * totalIncome); 
+        budgetEntryString += String.format(overviewFormat, "Transportaton/Car", getTransportationPercent(), (getTransportationPercent() / 100) * totalIncome); 
+        budgetEntryString += String.format(overviewFormat, "Education", getEducationPercent(), (getEducationPercent() / 100) * totalIncome); 
+        budgetEntryString += String.format(overviewFormat, "Entertainment", getEntertainmentPercent(), (getEntertainmentPercent() / 100) * totalIncome); 
+        budgetEntryString += String.format(overviewFormat, "Other", getOtherPercent(), (getOtherPercent() / 100) * totalIncome); 
+        budgetEntryString += String.format(overviewFormat, "Savings", getSavingsPercent(), (getSavingsPercent() / 100) * totalIncome); 
+        budgetEntryString += String.format(overviewFormat, "Total Budget", 100.00, totalIncome); 
+        budgetEntryString += "\r\n\r\n";
         return budgetEntryString; 
     }
     
-    public double getEducationPercent(int userIndex) {
-        return BudgetEntries.get(userIndex).getEducationPercent(); 
-    }
-    
-    public double getEntertainmentPercent(int userIndex) {
-        return BudgetEntries.get(userIndex).getEntertainmentPercent(); 
-    }
-    
-    public double getSavingsPercent(int userIndex) {
-        return BudgetEntries.get(userIndex).getSavingsPercent(); 
-    }
-    
-    public double getOtherPercent(int userIndex) {
-        return BudgetEntries.get(userIndex).getOtherPercent(); 
-    }
-            
-    public double getRentPercent(int userIndex) {
-        return BudgetEntries.get(userIndex).getRentPercent(); 
-    }
-    public double getGroceryPercent(int userIndex) {
-        return BudgetEntries.get(userIndex).getGroceryPercent(); 
-    }
-    
-    public double getClothingPercent(int userIndex) {
-        return BudgetEntries.get(userIndex).getClothingPercent(); 
-    }
-    
-    public double getTransportationPercent(int userIndex) {
-        return BudgetEntries.get(userIndex).getTransportationPercent(); 
-    }
-    
     public double[] getBudgetData() {
-        int userIndex = searchBudgetEntry();
+        DBAccess.readBudget();
         double[] budgetData = new double[8]; 
-        if (userIndex == -1) {
-            budgetData[0] = 0;
-            budgetData[1] = 0;
-            budgetData[2] = 0;
-            budgetData[3] = 0;
-            budgetData[4] = 0;
-            budgetData[5] = 0;
-            budgetData[6] = 0;
-            budgetData[7] = 0;
-            
-        }
-        else {
-            budgetData[0] = getRentPercent(userIndex); 
-            budgetData[1] = getGroceryPercent(userIndex); 
-            budgetData[2] = getClothingPercent(userIndex); 
-            budgetData[3] = getTransportationPercent(userIndex); 
-            budgetData[4] = getEducationPercent(userIndex); 
-            budgetData[5] = getEntertainmentPercent(userIndex); 
-            budgetData[6] = getSavingsPercent(userIndex); 
-            budgetData[7] = getOtherPercent(userIndex); 
-        }
+        budgetData[0] = getRentPercent(); 
+        budgetData[1] = getGroceryPercent(); 
+        budgetData[2] = getClothingPercent(); 
+        budgetData[3] = getTransportationPercent(); 
+        budgetData[4] = getEducationPercent(); 
+        budgetData[5] = getEntertainmentPercent(); 
+        budgetData[6] = getSavingsPercent(); 
+        budgetData[7] = getOtherPercent(); 
+        
         
         // Removing 0 values from array for graph display
         int length = 0;
@@ -150,29 +172,16 @@ public class BudgetStatus {
     }
     
     public String[] getBudgetLabels() {
-        int userIndex = searchBudgetEntry();
+        DBAccess.readBudget(); 
         double[] budgetData = new double[8]; 
-        if (userIndex == -1) {
-            budgetData[0] = 0;
-            budgetData[1] = 0;
-            budgetData[2] = 0;
-            budgetData[3] = 0;
-            budgetData[4] = 0;
-            budgetData[5] = 0;
-            budgetData[6] = 0;
-            budgetData[7] = 0;
-            
-        }
-        else {
-            budgetData[0] = getRentPercent(userIndex); 
-            budgetData[1] = getGroceryPercent(userIndex); 
-            budgetData[2] = getClothingPercent(userIndex); 
-            budgetData[3] = getTransportationPercent(userIndex); 
-            budgetData[4] = getEducationPercent(userIndex); 
-            budgetData[5] = getEntertainmentPercent(userIndex); 
-            budgetData[6] = getSavingsPercent(userIndex); 
-            budgetData[7] = getOtherPercent(userIndex); 
-        }
+        budgetData[0] = getRentPercent(); 
+        budgetData[1] = getGroceryPercent(); 
+        budgetData[2] = getClothingPercent(); 
+        budgetData[3] = getTransportationPercent(); 
+        budgetData[4] = getEducationPercent(); 
+        budgetData[5] = getEntertainmentPercent(); 
+        budgetData[6] = getSavingsPercent(); 
+        budgetData[7] = getOtherPercent(); 
         
         // Removing 0 values from array for graph display
         int length = 0;

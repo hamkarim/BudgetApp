@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import model.BudgetStatus;
 import model.ExpenseStatus;
 import model.FileIO;
-import model.IncomeStatus;
 import model.DBAccess; 
+import model.IncomeStatus;
 
 
 public class MainFrameController implements java.awt.event.ActionListener {
@@ -63,11 +63,10 @@ public class MainFrameController implements java.awt.event.ActionListener {
             model.clearCurrentUser();  
         }
         else if (e.getActionCommand() == "btnSave") {
-            IncomeStatus income = new IncomeStatus(); 
+            IncomeStatus income = IncomeStatus.getInstance(); 
             String incomeEntryString = income.getIncomeEntryString(); 
-            BudgetStatus budget = new BudgetStatus();
+            BudgetStatus budget = BudgetStatus.getInstance(); 
             String budgetEntryString = budget.getBudgetEntryString(); 
-            ExpenseStatus expenses = new ExpenseStatus(); 
             String expenseEntryString = ExpenseStatus.getExpensesString("View All", "View All"); 
             FileIO.saveReport(incomeEntryString, budgetEntryString, expenseEntryString); 
         } 
@@ -83,13 +82,5 @@ public class MainFrameController implements java.awt.event.ActionListener {
             this.view = v;
     } 
 
-    /* 
-    public void initModel(int x){
-            model.setValue(x);
-    } //initModel()
-    */ 
-    
-        
-    
     
 }

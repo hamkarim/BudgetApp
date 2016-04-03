@@ -1,7 +1,6 @@
 
 package controller;
 
-import model.UserStatus;
 import java.awt.event.ActionEvent;
 
 
@@ -10,7 +9,6 @@ public class LogInController implements java.awt.event.ActionListener {
     view.LogInView view; 
     model.UserStatus model; 
     
-    //invoked when a button is pressed
     public void actionPerformed(java.awt.event.ActionEvent e){
        
         if (e.getActionCommand() == "btnClear") {
@@ -25,7 +23,7 @@ public class LogInController implements java.awt.event.ActionListener {
             else if (view.getPasswordInput().isEmpty()) {
                 view.displayMessage("emptyPassword");
             }
-            else if (model.searchUsername(view.getUsernameInput()) >= 0) {
+            else if (model.searchUsername(view.getUsernameInput())) {
                 view.displayMessage("nameTaken"); 
             }
             else {
@@ -41,7 +39,7 @@ public class LogInController implements java.awt.event.ActionListener {
             else if (view.getPasswordInput().isEmpty()) {
                 view.displayMessage("emptyPassword");
             }
-            else if (model.searchUsername(view.getUsernameInput()) == -1){
+            else if (model.searchUsername(view.getUsernameInput()) == false){
                 view.displayMessage("userNotFound"); 
             }
             else if (model.attemptLogin(view.getUsernameInput(), view.getPasswordInput())) {
@@ -56,18 +54,14 @@ public class LogInController implements java.awt.event.ActionListener {
 
     public void addModel(model.UserStatus m){
             this.model = m;
-    } //addModel()
+    } 
 
 
     public void addView(view.LogInView v){
             this.view = v;
     } 
 
-    /* 
-    public void initModel(int x){
-            model.setValue(x);
-    } //initModel()
-    */ 
+
     
 }
 

@@ -20,18 +20,12 @@ public class IncomeController implements java.awt.event.ActionListener {
             this.view = v;
     } 
 
-    /* 
-    public void initModel(int x){
-            model.setValue(x);
-    } //initModel()
-    */ 
-    
     public void setIncomeValues() {
-        int userIndex = model.searchIncomeEntry(); 
-        if (userIndex >= 0) {
-            view.setValues(model.getSalary(userIndex), model.getInvestments(userIndex), model.getBonus(userIndex), model.getTax(userIndex), model.getTotal(userIndex)); 
-        }
+            model.retrieveValues(); 
+            view.setValues(model.getSalary(), model.getInvestments(), model.getBonus(), model.getTax(), model.getTotal()); 
     }
+    
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -39,19 +33,12 @@ public class IncomeController implements java.awt.event.ActionListener {
             view.clearValues();
         }
         else if (e.getActionCommand() == "btnUpdate") {
-            double totalVal = view.getTotal();
-            int userIndex = model.searchIncomeEntry(); 
-            if (userIndex >= 0) {
-                model.updateIncomeEntry(userIndex, view.getSalary(), view.getInvestments(), view.getTax(), view.getBonus(), view.getTotal());
-            }
-            else if (userIndex == -1) {
-                model.addIncomeEntry(view.getSalary(), view.getInvestments(), view.getTax(), view.getBonus());
-            }
-            view.setTotal(totalVal); 
-            view.displayUpdateMessage(); 
+                view.setTotal(view.getSalary() + view.getInvestments() + view.getTax() + view.getBonus());
+                model.updateIncomeEntry(view.getSalary(), view.getInvestments(), view.getTax(), view.getBonus(), view.getTotal());
+                view.displayUpdateMessage(); 
         }
+            //view.setTotal(totalVal); 
    
-    
     }
 }
     

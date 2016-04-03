@@ -20,7 +20,7 @@ public class BudgetApp {
             //Establishing database connection
             DBAccess database = model.DBAccess.getInstance(); 
             database.establishConnection(); 
-            database.loadTables(); 
+            //database.getUsers(); 
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error establishing database connection. Please check your internet connection. Program terminated.", "Error Connecting to Database", JOptionPane.ERROR_MESSAGE); 
             System.exit(1); 

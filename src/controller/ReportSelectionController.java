@@ -4,7 +4,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import model.BudgetStatus;
 import model.ExpenseStatus;
-import model.IncomeStatus;
+import model.IncomeStatus; 
 import model.UserStatus;
 
 public class ReportSelectionController implements java.awt.event.ActionListener{
@@ -16,10 +16,10 @@ public class ReportSelectionController implements java.awt.event.ActionListener{
 
     public void actionPerformed(ActionEvent e) {
             if (e.getActionCommand() == "DisplayReport") {
-                IncomeStatus income = new IncomeStatus(); 
+                IncomeStatus income = IncomeStatus.getInstance();
                 double[] incomeData = income.getIncomeData();
                 String[] incomeLabels = income.getIncomeLabels(); 
-                BudgetStatus budget = new BudgetStatus();
+                BudgetStatus budget = BudgetStatus.getInstance(); 
                 double[] budgetData = budget.getBudgetData(); 
                 String[] budgetLabels = budget.getBudgetLabels();
                 ExpenseStatus expenses = new ExpenseStatus(); 
