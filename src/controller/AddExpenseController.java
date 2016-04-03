@@ -2,6 +2,7 @@
 package controller;
 
 import java.awt.event.ActionEvent;
+import model.UserStatus;
 
 public class AddExpenseController implements java.awt.event.ActionListener {
     
@@ -32,13 +33,10 @@ public class AddExpenseController implements java.awt.event.ActionListener {
                 view.displayMessage("noValue"); 
             }
             else {
-                model.addExpenseEntry(view.getDay(),view.getMonth(),view.getYear(),view.getDescription(),view.getCategory(),view.getValue()); 
+                model.addExpenseEntry(UserStatus.getCurrentUser(),view.getDay(),view.getMonth(),view.getYear(),view.getCategory(),view.getDescription(),view.getValue()); 
                 view.displayMessage("expenseAdded"); 
-            }
-            
-            
-        }
-            
+            }                        
+        }            
     }
 }
     

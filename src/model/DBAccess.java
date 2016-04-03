@@ -1,17 +1,16 @@
 
 package model;
 
-import java.io.DataOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import util.*;
+import java.util.ArrayList;
+import java.util.Date;
 
 
 public class DBAccess {
@@ -23,6 +22,9 @@ public class DBAccess {
     private static ResultSet userSet;
     private static ResultSet incomeSet; 
     private static ResultSet budgetSet; 
+    private static ResultSet expenseSet;
+    private static ResultSet expenseUserSet;
+    private static ResultSet expenseIDset;
     
     
     private DBAccess() {}; 
@@ -38,7 +40,7 @@ public class DBAccess {
         // Step 1: Loading Driver
         Class.forName(databaseDriver); 
         // Step 2: Creating Connection
-        connection = DriverManager.getConnection(HOSTINFO, "N00469373", "oracle");
+        connection = DriverManager.getConnection(HOSTINFO, "N01132259", "oracle");
         System.out.println("Database connection established: " + HOSTINFO);
         statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE); 
     }
@@ -218,5 +220,118 @@ public class DBAccess {
         }       
     }
     
+     public static ArrayList<ExpenseEntry> readExpense() {
+        String userName = UserStatus.getCurrentUser();
+        ArrayList<ExpenseEntry> expenses = new ArrayList<>();
+        try { 
+            String sql = "SELECT expenses.expenseid as expenseid,dateofpurchase, category, description, value FROM expenses,expenseusers WHERE expenseusers.expenseid = expenses.expenseid and expenseusers.username = ?"; 
+            PreparedStatement expenseStatement = connection.prepareStatement(sql);
+            expenseStatement.setString(1, userName);
+            expenseSet = expenseStatement.executeQuery(); 
+            while (expenseSet.next()) {
+                 int expenseID = expenseSet.getInt("expenseid");
+                 int day = Tools.getDay(expenseSet.getString("dateofpurchase"));
+                 int month =Tools.getMonth(expenseSet.getString("dateofpurchase"));
+                 int year = Tools.getYear(expenseSet.getString("dateofpurchase"));                             
+                 String category = expenseSet.getString("category");
+                 String description = expenseSet.getString("description");
+                 double value = expenseSet.getDouble("value");
+                expenses.add(new ExpenseEntry(userName,expenseID,day,month,year,category,description,value));
+            } 
+        } catch (SQLException s) { 
+            JOptionPane.showMessageDialog(null, "Error loading expense from database. Program terminated.", "Error Loading Expense", JOptionPane.ERROR_MESSAGE); 
+            System.exit(1); 
+        }  
+        return expenses;
+    }
+    
+    public static void writeExpense(int expenseID, String dateOfPurchase, String category, String description, double value) {
+        try {
+            String sql = "INSERT INTO EXPENSES VALUES" + "(?,?,?,?,?)";
+            PreparedStatement insertExepnse= connection.prepareStatement(sql);
+            insertExepnse.setInt(1, expenseID);
+            insertExepnse.setString(2, dateOfPurchase);
+            insertExepnse.setString(3, category);
+            insertExepnse.setString(4, description);
+            insertExepnse.setDouble(5, value);
+            insertExepnse.executeUpdate();
+        } catch (SQLException s) { 
+            JOptionPane.showMessageDialog(null, "Error writing expense in database. Program terminated.", "Error Writing Expense Data", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error reading expenseid from database. Program terminated."+s.getMessage(), "Error Reading Expense Data", JOptionPane.ERROR_MESSAGE);
+           
+            System.exit(1); 
+        } 
+    }
+    
+    public static void writeExpenseUser(int expenseID, String userName ) {
+        try {
+            String sql = "INSERT INTO EXPENSEUSERS VALUES" + "(?,?)";
+            PreparedStatement insertExepnseUser= connection.prepareStatement(sql);
+            insertExepnseUser.setInt(1, expenseID);
+            insertExepnseUser.setString(2, userName);
+            insertExepnseUser.executeUpdate();
+        } catch (SQLException s) { 
+            JOptionPane.showMessageDialog(null, "Error writing expense user in database. Program terminated.", "Error Writing Expense User Data", JOptionPane.ERROR_MESSAGE);
+            System.exit(1); 
+        } 
+    }
+    
+    public static void updateExpense(int expenseID, String dateOfPurchase, String category, String description, double value) {
+        try {
+            String sql = "UPDATE EXPENSES SET dateOfPurchase = ?, category = ?, description = ?, value = ? WHERE expenseid = ?"; 
+            PreparedStatement updateExpense = connection.prepareStatement(sql);
+            updateExpense.setString(1, dateOfPurchase);
+            updateExpense.setString(2, category);
+            updateExpense.setString(3, description);
+            updateExpense.setDouble(4, value);
+            updateExpense.setInt(5, expenseID); 
+            updateExpense.executeUpdate(); 
+        } catch (SQLException s) {
+            JOptionPane.showMessageDialog(null, "Failed to update database entry. Program terminated.", "Error Loading Expense", JOptionPane.ERROR_MESSAGE); 
+            System.exit(1); 
+        }       
+    }
+    
+    public static void deleteExpense(int expenseID){
+        try{
+            String sql = "DELETE FROM EXPENSES WHERE expenseid = ?";
+            PreparedStatement deleteExpense = connection.prepareStatement(sql);
+            deleteExpense.setInt(1, expenseID);           
+            deleteExpense.executeUpdate();
+        }catch(SQLException s){
+            JOptionPane.showMessageDialog(null, "Failed to delete database entry. Program terminated.", "Error Deleting Expense", JOptionPane.ERROR_MESSAGE); 
+            System.exit(1); 
+        }
+    }
+    
+    public static void deleteExpenseUser(int expenseID, String userName){
+        try{
+            String sql = "DELETE FROM EXPENSEUSERS WHERE expenseid = ? and username = ?";
+            PreparedStatement deleteExpenseUser = connection.prepareStatement(sql);
+            deleteExpenseUser.setInt(1, expenseID);
+            deleteExpenseUser.setString(2, userName);
+            deleteExpenseUser.executeUpdate();
+        }catch(SQLException s){
+            JOptionPane.showMessageDialog(null, "Failed to delete database entry. Program terminated.", "Error Deleting Expense User", JOptionPane.ERROR_MESSAGE); 
+            System.exit(1); 
+        }
+    }
+    
+    public static int getExpenseID(){
+        int expenseID = 0;
+        try{
+            String sql = "SELECT EXPENSE_SEQ.NEXTVAL FROM DUAL ";
+            expenseIDset = statement.executeQuery(sql);
+
+            if(expenseIDset.next()){
+               expenseID = expenseIDset.getInt(1);  
+            } 
+        }catch(SQLException s){
+            JOptionPane.showMessageDialog(null, "Error reading expenseid from database. Program terminated.", "Error Reading Expense Data", JOptionPane.ERROR_MESSAGE); 
+            System.exit(1);
+        }
+        return expenseID;     
+        
+    }   
 }
 

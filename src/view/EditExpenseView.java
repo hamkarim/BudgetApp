@@ -162,15 +162,8 @@ public class EditExpenseView extends JFrame{
         }
     }
     
-    public ExpenseEntry getUpdatedExpenseEntry(){
-        ExpenseEntry updatedExpenseEntry = new ExpenseEntry(this.iniExpenseID,this.initUserID,this.getDay(),this.getMonth(),this.getYear(),
-                this.getDescription(),this.getCategory(),this.getValue());        
-        return updatedExpenseEntry;
-    }
-    
-    public ExpenseEntry getInitExpenseEntry(){
-        ExpenseEntry initExpenseEntry = new ExpenseEntry(this.iniExpenseID,this.initUserID,this.initDay,this.initMonth,this.initYear,this.initDescription,this.initCategory,this.initValue);
-        return initExpenseEntry;
+    public int getExpenseID(){
+        return this.iniExpenseID;
     }
         
     public int getDay() {

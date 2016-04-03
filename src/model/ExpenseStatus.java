@@ -4,36 +4,28 @@ package model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import util.*;
 
 public class ExpenseStatus {
     private static ArrayList<ExpenseEntry> ExpenseEntries = new ArrayList<ExpenseEntry>(); 
-        
-         
-    public static void addExpenseEntry(String userid, int day, int month, int year, String description, String category, double value) {
-        ExpenseEntries.add(new ExpenseEntry(userid,day, month, year, description, category, value)); 
+                
+    public void addExpenseEntry(String userName, int day, int month, int year, String category, String description,double value) {
+        int expenseID = DBAccess.getExpenseID();
+        DBAccess.writeExpense(expenseID, Tools.getDate(day, month, year), category, description, value);
+        DBAccess.writeExpenseUser(expenseID, userName);
     }
     
-    public static void addExpenseEntry(int day, int month, int year, String description, String category, double value) {
-        ExpenseEntries.add(new ExpenseEntry(UserStatus.getCurrentUser(),day, month, year, description, category, value)); 
-        FileIO.writeExpense(UserStatus.getCurrentUser(), ExpenseEntry.getTotalExpenseEntries(), day, month, year, description, category, value); 
+     public void updateExpenseEntry(int expenseID, int day, int month, int year, String category, String description, double value){
+        DBAccess.updateExpense(expenseID, Tools.getDate(day, month, year), category, description, value);
     }
     
-     public static void updateExpenseEntry(ExpenseEntry initExpenseEntry,ExpenseEntry updatedExpenseEntry){
-        FileIO.deleteExpense(initExpenseEntry.getUserid(),initExpenseEntry.getExpenseID(),initExpenseEntry.getDay(), initExpenseEntry.getMonth(),
-                initExpenseEntry.getYear(),initExpenseEntry.getDescription(),initExpenseEntry.getCategory(),initExpenseEntry.getValue());
-        FileIO.writeExpense(updatedExpenseEntry.getUserid(),updatedExpenseEntry.getExpenseID(),updatedExpenseEntry.getDay(), updatedExpenseEntry.getMonth(),
-                updatedExpenseEntry.getYear(),updatedExpenseEntry.getDescription(),updatedExpenseEntry.getCategory(),updatedExpenseEntry.getValue());
+    public void deleteExpenseEntry(int expenseID, String userName){
+        DBAccess.deleteExpenseUser(expenseID, userName);
+        DBAccess.deleteExpense(expenseID);
     }
-    
-    public static void deleteExpenseEntry(String userId, int expenseId, int day, int month, int year, String description, String category, double value){
-        FileIO.deleteExpense(userId, expenseId, day, month, year, description, category, value);
-    }
-       
-    
-    
-    
+          
     public static void setExpenses() {
-        ExpenseEntries = FileIO.readExpenses(); 
+        ExpenseEntries = DBAccess.readExpense();
     }
     
     public static ArrayList<ExpenseEntry> filterExpenses(String category,String month){

@@ -60,7 +60,7 @@ public class FileIO {
                 description = new String(buf,0,length);
                 value = file.readDouble();
                 if(UserStatus.getCurrentUser().equals(userID.trim())) {
-                    expenseEntries.add(new ExpenseEntry(expenseID,userID.trim(),day,month,year,description.trim(),category.trim(),value));
+                    expenseEntries.add(new ExpenseEntry(userID.trim(),expenseID,day,month,year,description.trim(),category.trim(),value));
                 }
             }//while(file.getFilePointer()<file.length());
             file.close();

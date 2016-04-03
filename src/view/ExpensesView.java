@@ -221,9 +221,5 @@ public class ExpensesView extends javax.swing.JPanel {
     public void clearValues() {
         comboMonth.setSelectedItem("View All"); 
         comboCategory.setSelectedItem("View All"); 
-    }
-    
-
-    
-
+    }   
 }

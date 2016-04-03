@@ -160,7 +160,7 @@ public class DisplayExpensesView extends JFrame{
     
     public ExpenseEntry getSelectedItem(){
         int row = tblExpenses.getSelectedRow();
-        String userID = tblExpenses.getValueAt(row,0).toString();
+        String userName = tblExpenses.getValueAt(row,0).toString();
         int expenseID = Integer.parseInt(tblExpenses.getValueAt(row, 1).toString());
         String date = tblExpenses.getValueAt(row, 2).toString();
         String category = tblExpenses.getValueAt(row, 3).toString();
@@ -169,7 +169,7 @@ public class DisplayExpensesView extends JFrame{
         int day = getDay(date);
         int month = getMonth(date);
         int year = getYear(date);
-        ExpenseEntry selectedItem = new ExpenseEntry(expenseID,userID,day,month,year,description,category,value);
+        ExpenseEntry selectedItem = new ExpenseEntry(userName,expenseID,day,month,year,category,description,value);
         return selectedItem;
     }
     

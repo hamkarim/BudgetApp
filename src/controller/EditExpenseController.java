@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.ExpenseStatus;
 
-
+//Another test by Lynn
 public class EditExpenseController implements ActionListener {
     
     view.EditExpenseView view; 
@@ -33,7 +33,7 @@ public class EditExpenseController implements ActionListener {
                 view.displayMessage("noValue"); 
             }
             else {
-                ExpenseStatus.updateExpenseEntry(view.getInitExpenseEntry(), view.getUpdatedExpenseEntry());
+                model.updateExpenseEntry(view.getExpenseID(),view.getDay(),view.getMonth(),view.getYear(),view.getCategory(),view.getDescription(),view.getValue());
                 view.displayMessage("expenseUpdated"); 
             }            
         }

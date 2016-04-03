@@ -153,7 +153,6 @@ public class AddExpenseView extends JDialog{
         String category = comboCategory.getSelectedItem().toString();
         return category;
     }
-
     
     public void displayMessage(String messageType) {
         if (messageType == "noDate") {
