@@ -5,11 +5,11 @@ INCOME INFORMATION
 
 Category                    Percentage of Income    Value            
 
-Salary                                    25.00%    $20.00          
-Investments                               25.00%    $20.00          
-Bonus                                     25.00%    $20.00          
-Grants/Tax Credits                        25.00%    $20.00          
-Total Income                             100.00%    $80.00          
+Salary                                     0.00%    $0.00           
+Investments                                0.00%    $0.00           
+Bonus                                    100.00%    $100000.00      
+Grants/Tax Credits                         0.00%    $0.00           
+Total Income                             100.00%    $100000.00      
 
 
 BUDGET INFORMATION
@@ -17,17 +17,32 @@ BUDGET INFORMATION
 Category                    Percentage of Income    Value            
 
 Rent/Utilities                             0.00%    $0.00           
-Groceries                                 50.00%    $40.00          
-Clothing                                  50.00%    $40.00          
+Groceries                                  0.00%    $0.00           
+Clothing                                   0.00%    $0.00           
 Transportaton/Car                          0.00%    $0.00           
+Education                                  0.00%    $0.00           
+Entertainment                            100.00%    $100000.00      
+Other                                      0.00%    $0.00           
+Savings                                    0.00%    $0.00           
+Total Budget                             100.00%    $100000.00      
+
+
+EXPENSES OVERVIEW
+
+Category                  Percentage of Expenses    Total Expenses   
+
+Rent/Utilities                           100.00%    $2000.00        
+Groceries                                  0.00%    $0.00           
+Clothing                                   0.00%    $0.00           
+Transportation/Car                         0.00%    $0.00           
 Education                                  0.00%    $0.00           
 Entertainment                              0.00%    $0.00           
 Other                                      0.00%    $0.00           
-Savings                                    0.00%    $0.00           
-Total Budget                             100.00%    $80.00          
+Total Expenses                           100.00%    $2000.00        
 
 
-EXPENSES INFORMATION
+EXPENSES LOG
 
-No expense information saved.
+Date           Category              Description             Value    
 
+02-Apr-2016    Rent/Utilities        blabla 2                $2000.00        

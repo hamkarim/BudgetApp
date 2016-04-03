@@ -3,7 +3,6 @@ package controller;
 
 import java.awt.event.ActionEvent;
 
-
 public class AddExpenseController implements java.awt.event.ActionListener {
     
     view.AddExpenseView view; 
@@ -18,14 +17,6 @@ public class AddExpenseController implements java.awt.event.ActionListener {
     public void addView(view.AddExpenseView v){
             this.view = v;
     } 
-
-    /* 
-    public void initModel(int x){
-            model.setValue(x);
-    } //initModel()
-    */ 
-    
-    
 
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class UserStatus {
-    private static ArrayList<User> userList = new ArrayList<User>(); 
     private static boolean loggedIn = false;
     private static String currentUser = ""; 
     
@@ -31,25 +30,16 @@ public class UserStatus {
     }
     
     public static void addUserEntry(String userid, String password) {
-        userList.add(new User(userid,password)); 
         DBAccess.writeUser(userid, password);
     }
-
-    public int searchUsername(String searchPattern) {
-            userList = DBAccess.readUsers();
-            int userIndex; 
-            for (int i = 0; i < userList.size(); i++) {
-                    if  (userList.get(i).getUserid().equals(searchPattern)) {
-                        userIndex = i; 
-                        return userIndex; 
-                    }
-                }
-            return -1; 
+    
+    public boolean searchUsername(String searchPattern) {
+            boolean userExists = DBAccess.readUser(searchPattern);
+            return userExists;
     }
       
     public boolean attemptLogin(String username, String password) {            
-            int userIndex = searchUsername(username); 
-            if (userList.get(userIndex).getPassword().equals(password)) {
+            if (DBAccess.readUser(username, password)) {
                 this.setCurrentUser(username); 
                 this.setLoggedIn(true); 
                 return true;

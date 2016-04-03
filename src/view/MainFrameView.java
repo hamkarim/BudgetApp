@@ -158,7 +158,7 @@ public class MainFrameView extends JFrame implements java.util.Observer {
         controller.IncomeController incomeController = new controller.IncomeController();
         incomeController.addView(panelIncome);
         panelIncome.addController(incomeController);
-        IncomeStatus incomeModel = new IncomeStatus(); 
+        IncomeStatus incomeModel = IncomeStatus.getInstance(); 
         incomeController.addModel(incomeModel); 
         
         controller.ExpensesController expensesController = new controller.ExpensesController();
@@ -176,7 +176,7 @@ public class MainFrameView extends JFrame implements java.util.Observer {
         controller.BudgetController budgetController = new controller.BudgetController();
         budgetController.addView(panelBudget);
         panelBudget.addController(budgetController);
-        BudgetStatus budgetModel = new BudgetStatus(); 
+        BudgetStatus budgetModel = BudgetStatus.getInstance(); 
         budgetController.addModel(budgetModel); 
         
         controller.ReportSelectionController reportController = new controller.ReportSelectionController();
