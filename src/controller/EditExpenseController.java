@@ -33,7 +33,7 @@ public class EditExpenseController implements ActionListener {
                 view.displayMessage("noValue"); 
             }
             else {
-                ExpenseStatus.updateExpenseEntry(view.getInitExpenseEntry(), view.getUpdatedExpenseEntry());
+                model.updateExpenseEntry(view.getExpenseID(),view.getDay(),view.getMonth(),view.getYear(),view.getCategory(),view.getDescription(),view.getValue());
                 view.displayMessage("expenseUpdated"); 
             }            
         }

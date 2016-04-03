@@ -2,7 +2,7 @@
 package model;
 
 public class ExpenseEntry {
-    private String userid; 
+    private String userName; 
     private int day;
     private int month;
     private int year;
@@ -16,21 +16,9 @@ public class ExpenseEntry {
 
     // Stores each user's expense data
     
-    public ExpenseEntry(String userid, int day, int month, int year, String description, String category, double value) {
-        totalExpenseEntries++;
-        this.expenseID = totalExpenseEntries; 
-        this.userid = userid; 
-        this.day = day;
-        this.month = month;
-        this.year = year; 
-        this.description = description;
-        this.category = category;
-        this.value = value;
-    }
-    
-        public ExpenseEntry(int expenseID, String userid, int day, int month, int year, String description, String category, double value) {
-        this.expenseID = expenseID; 
-        this.userid = userid; 
+    public ExpenseEntry(String userName, int expenseID, int day, int month, int year, String category, String description, double value) {
+        this.expenseID = expenseID;
+        this.userName = userName; 
         this.day = day;
         this.month = month;
         this.year = year; 
@@ -122,7 +110,7 @@ public class ExpenseEntry {
     }
 
     public String getUserid() {
-        return userid;
+        return userName;
     }
     
     public String getDate(){

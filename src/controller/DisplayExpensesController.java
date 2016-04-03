@@ -28,9 +28,7 @@ public class DisplayExpensesController implements ActionListener{
                 break;
             case "btnDelete":
                 if(view.isItemSelected()){
-                    ExpenseStatus.deleteExpenseEntry(view.getSelectedItem().getUserid(),view.getSelectedItem().getExpenseID(),view.getSelectedItem().getDay(),
-                            view.getSelectedItem().getMonth(),view.getSelectedItem().getYear(),view.getSelectedItem().getDescription(),
-                            view.getSelectedItem().getCategory(),view.getSelectedItem().getValue());
+                    model.deleteExpenseEntry(view.getSelectedItem().getExpenseID(),view.getSelectedItem().getUserid());
                     view.displayMessage("expenseDeleted");
                     view.refreshExpense(ExpenseStatus.expenseTableFormat(ExpenseStatus.filterExpenses(view.getCategory(), view.getMonth())));
                 }
