@@ -40,81 +40,53 @@ public class LogInView extends javax.swing.JPanel {
         btnClear = new javax.swing.JButton();
         btnRegister = new javax.swing.JButton();
         lblLoggedIn = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(800, 600));
+        setLayout(null);
 
         lblUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblUsername.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/userIcon.png"))); // NOI18N
         lblUsername.setText("Username:");
+        add(lblUsername);
+        lblUsername.setBounds(190, 74, 160, 64);
 
         lblPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/passwordIcon.png"))); // NOI18N
         lblPassword.setText("   Password:");
+        add(lblPassword);
+        lblPassword.setBounds(206, 238, 168, 68);
+        add(textUsername);
+        textUsername.setBounds(368, 93, 250, 30);
+        add(passPassword);
+        passPassword.setBounds(368, 259, 250, 30);
 
         btnLogin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnLogin.setText("Login");
+        add(btnLogin);
+        btnLogin.setBounds(198, 345, 100, 25);
 
         btnClear.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnClear.setText("Clear");
+        add(btnClear);
+        btnClear.setBounds(358, 345, 100, 25);
 
         btnRegister.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnRegister.setText("Register");
+        add(btnRegister);
+        btnRegister.setBounds(518, 345, 100, 25);
 
         lblLoggedIn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblLoggedIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/calculator.gif"))); // NOI18N
         lblLoggedIn.setText("    Welcome, username!");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 190, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(162, 162, 162)
-                            .addComponent(passPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(textUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(lblLoggedIn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(182, 182, 182))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsername)
-                    .addComponent(textUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblLoggedIn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(passPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnRegister)
-                        .addComponent(btnClear)))
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
-
+        add(lblLoggedIn);
+        lblLoggedIn.setBounds(273, 145, 259, 86);
         lblLoggedIn.setVisible(false);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogIn.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        add(jLabel1);
+        jLabel1.setBounds(-40, -30, 860, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     public void clearValues() {
@@ -208,6 +180,7 @@ public class LogInView extends javax.swing.JPanel {
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblLoggedIn;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;

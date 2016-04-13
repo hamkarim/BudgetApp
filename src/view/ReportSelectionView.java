@@ -37,18 +37,22 @@ public class ReportSelectionView extends javax.swing.JPanel {
         lblMonth = new javax.swing.JLabel();
         comboMonth = new javax.swing.JComboBox();
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+
         btnDisplayReport.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnDisplayReport.setForeground(new java.awt.Color(255, 0, 255));
         btnDisplayReport.setText("Display Report");
 
         btnClear.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        btnClear.setForeground(new java.awt.Color(255, 0, 255));
         btnClear.setText("Clear");
 
         lblGenerateReport.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblGenerateReport.setForeground(new java.awt.Color(255, 51, 255));
+        lblGenerateReport.setForeground(new java.awt.Color(153, 0, 153));
         lblGenerateReport.setText("Generate a Financial Report");
 
         lblMonth.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblMonth.setForeground(new java.awt.Color(255, 51, 255));
+        lblMonth.setForeground(new java.awt.Color(153, 0, 153));
         lblMonth.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/monthIcon.png"))); // NOI18N
         lblMonth.setText("    Select a Month");
         lblMonth.setToolTipText("");
